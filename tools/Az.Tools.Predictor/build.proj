@@ -27,8 +27,7 @@
     <Message Text="Build $(ModuleName)" />
     <MakeDir Directories="$(ArtifactFolder)/$(ModuleName)" />
     <Exec Command="dotnet --version" />
-
-    <Exec Command="msbuild $(ModuleSolutionFile) /p:configuration=$(Configuration)" />
+    <Exec Command="dotnet $(BuildAction) $(ModuleSolutionFile) -c $(Configuration)" />
   </Target>
 
   <Target Name="GenerateHelp">
